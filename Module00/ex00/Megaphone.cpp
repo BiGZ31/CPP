@@ -6,7 +6,7 @@ int	main(int ac, char **av)
 	int i = 1;
 
 	if (ac < 2)
-		std::cout << "You need at least one argument." << std::endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else
 	{
 		while(av[i])
