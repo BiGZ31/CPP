@@ -2,15 +2,7 @@
 #include <string>
 #include <cstring>
 #include <algorithm>
-
-class Contact {
-public:
-    std::string name;
-    std::string surname;
-    std::string nickname;
-    std::string number;
-    std::string darkest_secret;
-};
+#include "Contact.hpp"
 
 class PhoneBook {
 public:
@@ -36,7 +28,7 @@ void	ft_replace_latest(PhoneBook& phone)
 		char c;
 		std::cout << "You already have 8 contacts. Do you want to replace the last one? (y/n)" << std::endl;
 		std::cin >> c;
-		if (c != 'y')
+		if (c != 'y' || c != 'Y')
 		{
 			std::cout << "Operation canceled!" << std::endl;
 			return;
@@ -46,18 +38,14 @@ void	ft_replace_latest(PhoneBook& phone)
         std::cout << "Enter your contact's name: ";
         std::cin >> name;
         std::cout << "Enter your contact's surname: ";
-        std::cin >> surname;
+        std::cin >> surname; 
         std::cout << "Enter your contact's nickname: ";
         std::cin >> nickname;
         std::cout << "Enter your contact's number: ";
         std::cin >> number;
         std::cout << "Enter your contact's darkest secret: ";
         std::cin >> darkest_secret;
-        phone.contacts[7].name = name;
-        phone.contacts[7].surname = surname;
-        phone.contacts[7].nickname = nickname;
-        phone.contacts[7].number = number;
-        phone.contacts[7].darkest_secret = darkest_secret;
+        phone.contacts[7].set_contact(name, surname, nickname, number, darkest_secret);
         phone.storage++;
         std::cout << "You replaced your oldest contact." << std::endl;
 }
@@ -77,11 +65,7 @@ void ft_add_contact(PhoneBook& phone)
         std::cin >> number;
         std::cout << "Enter your contact's darkest secret: ";
         std::cin >> darkest_secret;
-        phone.contacts[phone.storage].name = name;
-        phone.contacts[phone.storage].surname = surname;
-        phone.contacts[phone.storage].nickname = nickname;
-        phone.contacts[phone.storage].number = number;
-        phone.contacts[phone.storage].darkest_secret = darkest_secret;
+        phone.contacts[phone.storage].set_contact(name, surname, nickname, number, darkest_secret);
         phone.storage++;
         std::cout << "You successfully created a new contact!" << std::endl;
     }
@@ -99,8 +83,8 @@ void ft_search_contact(PhoneBook& book)
 	while (i <= 7)
 	{
 		std::cout << "|         " << i + 1 << "|";
-		if (book.contacts[i].name.length() > 10)
-			std::cout << book.contacts[i].name.substr(0, 9) << ".|";
+		if (book.contacts[i].get_name_length() > 10)
+			std::cout << book.contacts[i].get_name().substr(0, 9) << ".|";
 		else
 		{
 			j = book.contacts[i].name.length();

@@ -4,11 +4,11 @@ SRCS     = Megaphone.cpp
 OBJS     = ${SRCS:.cpp=.o}
 MAIN    = Megaphone.cpp
 
-CC         = g++
+CC         = c++
 CFLAGS     = -Wall -Wextra -Werror -std=c++98
 
 .c.o:        %.o : %.c
-	@g++ ${CFLAGS} ${HEADER} -o $(<:.c=.o)
+	@c++ ${CFLAGS} ${HEADER} -o $(<:.c=.o)
 
 all:         ${PROG}
 
