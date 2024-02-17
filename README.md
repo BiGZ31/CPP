@@ -11,7 +11,7 @@ This repository contains C++ modules developed for the 42 curriculum. Each modul
 
 ## Modules
 List of modules included in this repository:
-1. Module 00: (https://github.com/BiGZ31/CPP/tree/main/Module00)
+1. Module 00: [Module00] (https://github.com/BiGZ31/CPP/tree/main/Module00)
 2. Module 01: (link_to_module_2)
 3. ...
 
