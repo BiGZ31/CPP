@@ -11,8 +11,8 @@ This repository contains C++ modules developed for the 42 curriculum. Each modul
 
 ## Modules
 List of modules included in this repository:
-1. Module 1: [Module Name](link_to_module_1)
-2. Module 2: [Module Name](link_to_module_2)
+1. Module 00: (https://github.com/BiGZ31/CPP/tree/main/Module00)
+2. Module 01: (link_to_module_2)
 3. ...
 
 ## Usage
@@ -20,5 +20,5 @@ Provide instructions on how to use the modules, including how to compile and run
 
 ```bash
 # Example:
-$ g++ -o example example.cpp
-$ ./example
+$ make
+$ ./name_of_file
