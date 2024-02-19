@@ -3,15 +3,10 @@
 #include <cstring>
 #include <algorithm>
 #include "Contact.hpp"
+#include "Phonebook.hpp"
 
-class PhoneBook {
-public:
-    static const int MAX_CONTACTS = 8;
-    Contact contacts[MAX_CONTACTS];
-	bool b;
-    int storage;
-    char cmd[512];
-};
+class Contact;
+class PhoneBook;
 
 void	ft_move_contacts_down(PhoneBook& phone)
 {
@@ -28,7 +23,7 @@ void	ft_replace_latest(PhoneBook& phone)
 		char c;
 		std::cout << "You already have 8 contacts. Do you want to replace the last one? (y/n)" << std::endl;
 		std::cin >> c;
-		if (c != 'y' || c != 'Y')
+		if (c != 'y')
 		{
 			std::cout << "Operation canceled!" << std::endl;
 			return;
@@ -87,39 +82,39 @@ void ft_search_contact(PhoneBook& book)
 			std::cout << book.contacts[i].get_name().substr(0, 9) << ".|";
 		else
 		{
-			j = book.contacts[i].name.length();
+			j = book.contacts[i].get_name_length();
 			while (j < 10)
 			{
 				std::cout << " ";
 				j++;
 			}
-			std::cout << book.contacts[i].name;
+			std::cout << book.contacts[i].get_name();
 			std::cout << "|";
 		}
-		if (book.contacts[i].surname.length() > 10)
-			std::cout << book.contacts[i].surname.substr(0, 9) << ".|";
+		if (book.contacts[i].get_surname_length() > 10)
+			std::cout << book.contacts[i].get_surname().substr(0, 9) << ".|";
 		else
 		{
-			j = book.contacts[i].surname.length();
+			j = book.contacts[i].get_surname_length();
 			while (j < 10)
 			{
 				std::cout << " ";
 				j++;
 			}
-			std::cout << book.contacts[i].surname;
+			std::cout << book.contacts[i].get_surname();
 			std::cout << "|";
 		}
-		if (book.contacts[i].nickname.length() > 10)
-			std::cout << book.contacts[i].nickname.substr(0, 9) << ".|";
+		if (book.contacts[i].get_nickname_length() > 10)
+			std::cout << book.contacts[i].get_nickname().substr(0, 9) << ".|";
 		else
 		{
-			j = book.contacts[i].nickname.length();
+			j = book.contacts[i].get_nickname_length();
 			while (j < 10)
 			{
 				std::cout << " ";
 				j++;
 			}
-			std::cout << book.contacts[i].nickname;
+			std::cout << book.contacts[i].get_nickname();
 			std::cout << "|";
 		}
 		std::cout << std::endl;
@@ -137,24 +132,24 @@ void ft_search_contact(PhoneBook& book)
 	i = std::stoi(input);
 	if (i > 0 && i <= 8)
 	{
-		std::cout << "Name: " << book.contacts[i - 1].name << std::endl;
-		std::cout << "Surname: " << book.contacts[i - 1].surname << std::endl;
-		std::cout << "Nickname: " << book.contacts[i - 1].nickname << std::endl;
-		std::cout << "Number: " << book.contacts[i - 1].number << std::endl;
-		std::cout << "Darkest secret: " << book.contacts[i - 1].darkest_secret << std::endl;
+		std::cout << "Name: " << book.contacts[i - 1].get_name() << std::endl;
+		std::cout << "Surname: " << book.contacts[i - 1].get_surname() << std::endl;
+		std::cout << "Nickname: " << book.contacts[i - 1].get_nickname() << std::endl;
+		std::cout << "Number: " << book.contacts[i - 1].get_number() << std::endl;
+		std::cout << "Darkest secret: " << book.contacts[i - 1].get_darkest_secret() << std::endl;
 	}
 	else
 	{
 		std::cout << "Error. Index not found." << std::endl;
 		return ;
 	}
-		
 }
 
 int main(int ac, char** av)
 {
     PhoneBook book;
 
+	(void)ac; (void)av;
     std::cout << "This is your awesome phonebook! Please type a command." << std::endl;
 	book.b = 0;
     while (1)

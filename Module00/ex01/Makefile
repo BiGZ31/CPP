@@ -1,29 +1,27 @@
-PROG    = phonebook
+PROG = phonebook
 
-SRCS     = phonebook.cpp
-OBJS     = ${SRCS:.cpp=.o}
-MAIN    = phonebook.cpp
+SRCS = phonebook.cpp
+OBJS = ${SRCS:.cpp=.o}
 
-CC         = c++
-CFLAGS     = -Wall -Wextra -Werror -std=c++98
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-.c.o:        %.o : %.c
-	@c++ ${CFLAGS} ${HEADER} -o $(<:.c=.o)
+# Rule to compile .cpp files into object files
+.cpp.o:
+	@$(CC) ${CFLAGS} -c $< -o $@
 
-all:         ${PROG}
+all: ${PROG}
 
-${PROG}:    ${OBJS}
-						@$(CC) ${OBJS} -o ${PROG}
-						@echo "\033[32mPhoneBook Compiled!"
+${PROG}: ${OBJS}
+	@$(CC) ${OBJS} -o ${PROG}
+	@echo "\033[32mPhoneBook Compiled!"
 
 clean:
-						@rm -f ${OBJS} ${OBJS_B}
+	@rm -f ${OBJS} ${PROG}
+	@echo "\033[0;31mCleaned files!"
 
-fclean:     clean
-						@rm -f $(NAME)
-						@rm -f ${PROG}
-						@echo "\033[31mDeleting!"
+re: clean all
 
-re:            fclean all
+fclean: clean
 
-.PHONY: all clean fclean re%
+.PHONY: all clean
