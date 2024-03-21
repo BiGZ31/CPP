@@ -1,12 +1,12 @@
-#include "../headers/ClapTrap.hpp"
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name)
 {
     std::cout << "ClapTrap constructor called" << std::endl;
     this->name = name;
     this->hitpoints = 100;
-    this->energyPoints = 50;
-    this->attackDamage = 20;
+    this->energyPoints = 10;
+    this->attackDamage = 0;
 }
 
 ClapTrap::~ClapTrap()

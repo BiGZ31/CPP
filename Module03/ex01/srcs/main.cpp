@@ -1,11 +1,10 @@
 #include "../headers/ClapTrap.hpp"
+#include "../headers/ScavTrap.hpp"
 
 int	main()
 {
-	ClapTrap claptrap("Figure01");
-	ClapTrap newClaptrap("Figure02");
-	claptrap.attack("Correcteur");
-	claptrap.takeDamage(0);
-	claptrap.beRepaired(3);
+	ScavTrap ScavTrap("Figure02");
+
+    ScavTrap.guardGate();
 	return 0;
 }

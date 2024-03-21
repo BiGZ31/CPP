@@ -1,4 +1,4 @@
-#include "../headers/ScavTrap.hpp"
+#include "ScavTrap.hpp"
 
 void	ScavTrap::guardGate()
 {
