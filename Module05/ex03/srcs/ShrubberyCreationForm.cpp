@@ -5,6 +5,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("name", 
     this->_gradeForExecuting = 137;
     this->_gradeForSigning = 145;
     this->target = target + "_Shrubbery";
+    this->IsSigned = 1;
     std::cout << "ShrubberyCreationForm constructor called." << std::endl;
 }
 

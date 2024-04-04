@@ -8,13 +8,19 @@ int main(void)
 {
     Bureaucrat  Luke("Luke", 1);
     Bureaucrat  Geoffrey("Le G", 150);
-    ShrubberyCreationForm   tompere("pls");
+    ShrubberyCreationForm   arbre("pls");
     RobotomyRequestForm     random("Correcteur");
     PresidentialPardonForm  sorry("Lee Harvey Oswald");
 
-    tompere.exec();
-    random.exec();
-    sorry.exec();
 
+    sorry.signForm(Luke);
+    Luke.executeForm(sorry);
+    random.signForm(Geoffrey);
+    Geoffrey.executeForm(random);
+    random.signForm(Luke);
+    Geoffrey.executeForm(random);
+    Luke.executeForm(random);
+    arbre.signForm(Luke);
+    Luke.executeForm(arbre);
     return 0;
 }
