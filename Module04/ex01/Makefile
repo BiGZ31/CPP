@@ -1,6 +1,6 @@
-PROG    = animal
+PROG    = ex01
 
-SRCS     = srcs/main.cpp srcs/Dog.cpp srcs/Cat.cpp srcs/WrongAnimal.cpp srcs/Animal.cpp srcs/WrongCat.cpp
+SRCS     = srcs/main.cpp srcs/Dog.cpp srcs/Cat.cpp srcs/WrongAnimal.cpp srcs/Animal.cpp srcs/WrongCat.cpp srcs/Brain.cpp
 OBJS     = ${SRCS:.cpp=.o}
 MAIN    = main.cpp
 

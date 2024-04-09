@@ -1,6 +1,6 @@
-PROG    = animal
+PROG    = serialize
 
-SRCS     = srcs/main.cpp srcs/Dog.cpp srcs/Cat.cpp srcs/WrongAnimal.cpp srcs/Animal.cpp srcs/WrongCat.cpp
+SRCS     = main.cpp Serializer.cpp Data.cpp
 OBJS     = ${SRCS:.cpp=.o}
 MAIN    = main.cpp
 

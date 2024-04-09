@@ -4,11 +4,13 @@ Dog::Dog()
 {
     this->type = "Dog";
     std::cout << "Dog constructor called." << std::endl;
+    _brain = new Brain();
 }
 
 Dog::~Dog()
 {
     std::cout << "Dog destructor called" << std::endl;
+    delete _brain;
 }
 
 void Dog::makeSound() const
